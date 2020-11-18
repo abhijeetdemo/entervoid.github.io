@@ -1,0 +1,131 @@
+.gallery { 
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-auto-rows: 22rem;
+    grid-gap: 1rem;
+    /* max-width: 114rem; */
+    margin: 0 auto;
+    
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &.wide {
+            grid-column: span 2 / auto;
+        }
+        
+        &.wider {
+            grid-column: span 3 / auto;
+        }
+        
+        &.tall {
+            grid-row: span 2 / auto;  
+        }
+        
+        @include respond(tab-port) {
+            &.wide {
+                grid-column: span 1 / auto;
+            }
+
+            &.wider {
+                grid-column: span 3 / auto; //for block 1/auto
+            }
+
+            &.tall {
+                grid-row: span 1 / auto;  
+            }
+        }
+        
+        @include respond(phone) {
+            &.wide {
+                grid-column: span 1 / auto;
+            }
+
+            &.wider {
+                grid-column: span 1 / auto; //for block 1/auto
+            }
+
+            &.tall {
+                grid-row: span 1 / auto;  
+            }
+        }
+        
+    }
+        
+    
+    &__img-text {
+        @include fontSerif;
+        font-size: 6rem;
+        text-transform: uppercase;
+        text-align: center;
+        background-color: $color-dark-black;
+        color: $color-light-primary;
+        
+        @include respond(tab-port) {
+            font-size: 4rem;  
+        }
+
+        @include respond(phone) {
+            font-size: 3.6rem;  
+        }
+        
+    }
+    
+    &__img {
+        background-size: cover;
+        background-position: center;
+        filter: brightness(.65);
+        transition: all .4s;
+        cursor: pointer;
+        
+        &:hover {
+            transform: translateY(-.6rem);
+            filter: brightness(1);
+            @include boxShadowSubtle;
+        }
+        
+        &--two {
+            background-image: url(../img/card17.jpg);    
+        }
+        
+        &--three {
+            background-image: url(../img/card12.jpg);    
+        }
+        
+        &--four {
+            background-image: url(../img/card13.jpg);    
+        }
+        
+        &--five {
+            background-image: url(../img/card18.jpg);    
+        }
+        
+        &--six {
+            background-image: url(../img/card8.jpg);    
+        }
+        
+        &--seven {
+            background-image: url(../img/card19.jpg);    
+        }
+        
+        &--eight {
+            background-image: url(../img/card9.jpg);    
+        }
+        
+        &--nine {
+            background-image: url(../img/card10.jpg);    
+        }
+        
+    }
+    
+}
+
+
+
+
+
+// TO SORT SMALL SCREEN DISPLAY ISSUE. Wrap above code in below. It'll display as collapsed
+//@media screen and (min-width: 60rem) {} // max-width BELOW 900px 
+

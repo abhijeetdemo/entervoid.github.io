@@ -1,0 +1,105 @@
+body {
+    @include fontSansSerif;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    background-color: $color-dark-blackest; //temporary
+}
+
+.heading-primary {
+    backface-visibility: hidden;
+    width: 90vw;
+        
+    &--first {
+        display: block;
+        @include fontSerif;
+        text-transform: uppercase;
+        font-size: 10rem;
+        letter-spacing: .5rem;
+        -webkit-animation: pulsate 2s ease-out;
+        -webkit-animation-iteration-count: infinite;
+        animation: pulsate 2s ease-out;
+        animation-iteration-count: infinite;
+        
+        @include respond(tab-port) {
+            font-size: 8rem;   
+        }      
+        
+        @include respond(phone) {
+            font-size: 6rem;   
+        }
+
+         
+            &:hover {
+                -webkit-animation: none;
+                -webkit-animation-iteration-count: none;  
+                animation: none;
+                animation-iteration-count: none;  
+            }
+        
+            
+            &:hover .spin {
+                animation: spin-anti-cw .5s ease-out;
+            }
+            
+        }
+        
+    &--first:hover + span {
+        transform: translateX(0);
+        transition: all .6s ease-out;
+        opacity: 1;
+    }             
+        
+    &--second {
+        display: block;
+        @include fontSansSerif;
+        font-size: 1.8rem;
+        letter-spacing: .3rem;
+        word-spacing: .4rem;
+        text-transform: lowercase;
+        color: $color-light-secondary;
+        padding: .5rem 1rem;
+        transform: translateX(-35rem);
+        opacity: 0;
+        
+        @include respond(tab-land) {
+            transform: translateX(0);
+            opacity: 1;   
+        }
+        
+        
+    }
+        
+        .spin {
+            display: inline-block;
+            -webkit-animation: spin 1.5s linear infinite;
+            -moz-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+        }
+
+}
+
+.heading-secondary {
+    @include fontSerif;
+    font-size: 4rem;
+    /* color: $color-light-primary; */
+    @include linearGradientSunset-2;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: .4rem;
+    text-transform: uppercase;
+    text-align: center;
+    
+        @include respond(phone) {
+            font-size: 3rem;   
+        }
+    
+}
+
+.heading-tertiary {
+    @include fontSerif;
+    font-size: 2.2rem;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    text-align: center;
+}

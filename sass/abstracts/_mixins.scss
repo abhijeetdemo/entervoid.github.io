@@ -1,0 +1,105 @@
+@mixin clearfix {
+    &::after {
+        content:"";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin linearGradientSunset {
+    background-image: -moz-linear-gradient(45deg,#ffd6f8 0%,#f8f9fa 100%); 
+    background-image: -webkit-linear-gradient(45deg,  #ffd6f8 0%,#f8f9fa 100%); 
+    background-image: linear-gradient(45deg,  #ffd6f8 0%,#f8f9fa 100%);
+}
+
+
+@mixin linearGradientSunset-1 {
+    background-color: #faaca8;
+    -webkit-background: linear-gradient(90deg, rgba(250,172,168,1) 0%, rgba(255,214,248,1) 40%, rgba(255,241,240,1) 100%);
+    background: linear-gradient(90deg, rgba(250,172,168,1) 0%, rgba(255,214,248,1) 40%, rgba(255,241,240,1) 100%);    
+}
+
+
+@mixin linearGradientSunset-2 {
+    background-color: #eec0c6;
+    -webkit-background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
+    background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
+}
+
+
+@mixin boxShadowSubtle {
+    -webkit-box-shadow: 0 .4rem 1rem 0 rgba($color-black,.5);
+    -moz-box-shadow: 0 .4rem 1rem 0 rgba($color-black,.5);
+    box-shadow: 0 .4rem 1rem 0 rgba($color-black,.5);
+}
+
+@mixin boxShadowGlow {
+    -webkit-box-shadow: 0 .2rem .8rem .1rem rgba($color-light-primary,.3);
+    -moz-box-shadow: 0 .2rem .8rem .1rem rgba($color-light-primary,.3);
+    box-shadow: 0 .2rem .8rem .1rem rgba($color-light-primary,.3);
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin fontSerif {
+    font-family: 'Lora', 'Georgia', serif;
+    font-weight: 500;
+}
+
+@mixin fontSansSerif {
+    font-family: 'Source Sans Pro', 'Arial', sans-serif;
+    font-weight: 300;
+}
+
+// MEDIA QUERY MANAGER
+
+/*
+0px - 600px - Phone
+600px - 900px - Tablet Portrait
+900px - 1200px - Tablet Landscape
+1200px - 1800px - Our Normal Styles Apply
+1800+ - Big Desktops
+*/
+
+/* @mixin respond-phone { 
+    @media(max-width: 600px) { @content }; // @content 'Directive' allows us to pass a block of code into a mixin
+} */
+
+/*
+Breakpoint Argument Choices"
+phone
+tab-port
+tab-land
+big-desktop
+*/
+
+/*Using relative units instead of px. Using em instead of rem, as rem has failed in browsers for media queires. */
+/* 1em = 16px default*/ /*now divide 600, 900, 1200, 1800 by 16*/
+
+//ORDER of applying media queries - Base+Typography > General Layout (Header, Footer) + Grid > Page Layout > Components
+
+@mixin respond($breakpoint) {
+    
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content }; //600px
+    }
+    
+    @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content }; //900px
+    }
+    
+    
+    @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content }; //1200px
+    }
+    
+    @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content }; //1800px
+    }
+    
+}

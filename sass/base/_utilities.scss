@@ -1,0 +1,43 @@
+//BOTTOM MARGINS
+
+.u-margin-bottom-small { margin-bottom: 1.5rem !important; }
+.u-margin-bottom-big { margin-bottom: 4rem !important; }
+.u-margin-bottom-huge { margin-bottom: 6.5rem !important; }
+
+.u-margin-top-small { margin-top: 1.5rem !important; }
+
+// UNDERLINE
+
+.u-fancy-underline {
+    color: $color-light-primary;
+    text-decoration: none;
+    position: relative;
+    
+    @include respond(tab-land) {
+        border-bottom: 2px solid $color-light-primary;
+    }
+    
+}
+
+.u-fancy-underline::after {
+    content:"";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: $color-light-primary;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+
+.u-fancy-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    
+        @include respond(tab-land) {
+        transform: scaleX(0);
+        }    
+}
+

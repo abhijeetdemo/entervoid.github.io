@@ -1,0 +1,23 @@
+//Everything in 'home' is specific to homepage and not to be found anywhere else
+
+.section-slider {
+    padding: 5rem 2rem;
+    background-color: $color-dark-black;
+    position: relative;
+}
+
+.section-card {
+    padding: 10rem 0;
+    background-color: $color-dark-primary;
+}
+
+.section-about {
+    /* padding: 15rem 0; */
+    height: 100vh;
+    position: relative;
+}
+
+.section-gallery {
+    padding: 1rem;
+    background-color: $color-dark-primary;
+}

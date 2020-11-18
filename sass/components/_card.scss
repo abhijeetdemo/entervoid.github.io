@@ -1,0 +1,137 @@
+.card {
+    position: relative;
+    height: 40rem;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: $color-black;
+    transition: all .4s;
+    backface-visibility: hidden;
+    cursor: pointer;
+    box-shadow: none;
+    
+    @include respond(tab-port) { 
+        height: 60rem;
+    }
+
+    &:hover {
+        @include boxShadowGlow;
+        transform: translateY(-1.5rem) scale(1);
+    }   
+    
+    &:hover &__description {
+        color: $color-light-primary;
+    }
+    
+    &:hover &__picture {
+        filter: brightness(1);
+    }
+    
+    
+    &__picture {
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 25rem;
+        width: auto;
+        filter: brightness(.8);
+        transition: all .4s;
+        
+    @include respond(tab-port) { 
+        height: 50rem;
+        filter: brightness(1);
+    }
+        
+        &--1 {
+           background-image: url(../img/card1.jpg); 
+        }
+        
+        &--2 {
+           background-image: url(../img/card2.jpg); 
+        }
+        
+        &--3 {
+           background-image: url(../img/card3.jpg); 
+        }
+        
+        &--4 {
+           background-image: url(../img/card4.jpg); 
+        }
+    
+    }
+    
+    &__description {
+        color: $color-dark-primary;
+        text-align: center;
+        transition: all .4s;
+    }
+    
+    &__heading {
+        @include fontSerif;
+        text-transform: uppercase;
+        font-size: 2.4rem;
+        padding: 1.5rem 2rem 1rem 2rem;
+        
+        @include respond(tab-land) { 
+            font-size: 2rem;
+        }
+            
+        @include respond(tab-port) { 
+            color: $color-light-primary;
+            padding: 3rem;
+            font-size: 2.6rem;
+        }
+        
+    }
+        
+    &__text {
+        padding: 0 2rem;
+        font-size: 1.6rem;
+        
+        @include respond(tab-land) { 
+            font-size: 1.6rem;
+            padding: 0 .2rem;
+        }
+                
+        @include respond(tab-port) { 
+            display: none;
+            padding: 0;
+        }
+        
+    }
+
+    
+    /* 
+    
+    //OVERLAY
+    
+    &:hover &__overlay {
+      height: 38%;
+    }
+    
+    &__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #d9a7c7;
+        background: -webkit-linear-gradient(to right bottom, #fffcdc, #d9a7c7);
+        background: linear-gradient(to right bottom, #fffcdc, #d9a7c7);
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: all .4s ease;
+        backface-visibility: hidden;
+    }
+    
+    &__desc {
+        padding: 1rem 2rem;
+        text-align: center;
+        color: $color-dark-secondary;
+    } 
+    
+    */
+    
+    
+}
+
+
